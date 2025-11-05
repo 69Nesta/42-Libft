@@ -7,7 +7,8 @@ SRC = ft_isalpha.c \
 		ft_isprint.c \
 		ft_strlen.c \
 		ft_memset.c \
-		ft_bzero.c
+		ft_bzero.c \
+		ft_memcpy.c
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
