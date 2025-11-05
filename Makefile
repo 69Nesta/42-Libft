@@ -12,11 +12,6 @@ SRC = ft_isalpha.c \
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
-TESTS_SRC = test_ft_isalpha.c \
-				test_ft_isdigit.c
-TESTS_OBJ = $(addprefix $(OBJ_DIR)/, $(TESTS_SRC:%.c=%.o))
-TESTS_BIN = tests
-
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I.
 
@@ -40,8 +35,9 @@ re: fclean all
 check: norm
 
 norm:
+	@clear
 	@echo "\n------------ Norm ------------\n"
-	@norminette
+	@norminette $(SRC)
 	@echo
 
 test:
