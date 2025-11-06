@@ -19,7 +19,9 @@ SRC = ft_isalpha.c \
 		ft_strncmp.c \
 		ft_memchr.c \
 		ft_memcmp.c \
-		ft_strnstr.c
+		ft_strnstr.c \
+		ft_atoi.c
+
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
@@ -53,7 +55,7 @@ norm:
 
 test:
 	@$(CC) $(CFLAGS) test.c -o test.out
-	@./test.out
+	@./test.out 42
 	@rm -f test.out
 
 .PHONY: all clean fclean re
