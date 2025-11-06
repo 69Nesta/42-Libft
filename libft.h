@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:04:09 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/06 14:49:01 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/06 15:40:15 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ void	*ft_calloc(size_t nitems, size_t size);
 char	*ft_strdup(const char *string);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
