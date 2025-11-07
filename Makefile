@@ -25,7 +25,8 @@ SRC = ft_isalpha.c \
 		ft_strdup.c \
 		\
 		ft_substr.c \
-		ft_strjoin.c
+		ft_strjoin.c \
+		ft_strtrim.c
 
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
