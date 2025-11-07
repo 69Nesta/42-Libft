@@ -6,13 +6,13 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 16:30:23 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/07 08:51:47 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/07 08:55:02 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int ft_isinset(const char c, const char *set);
+static int	ft_isinset(const char c, const char *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -32,10 +32,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (ft_substr(s1, trim_s, i - trim_s + 1));
 }
 
-static int ft_isinset(const char c, const char *set)
+static int	ft_isinset(const char c, const char *set)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while (set[i] && set[i] != c)
 		i++;
