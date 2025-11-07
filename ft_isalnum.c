@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 12:41:01 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/05 13:07:57 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/07 09:28:21 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_isalnum(int c)
 
 static int	ft_isdigit(int c)
 {
-	return ((c >= '0' && c <= '9') || c == -1);
+	return ((c >= '0' && c <= '9'));
 }
 
 static int	ft_isalpha(int c)
