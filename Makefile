@@ -37,7 +37,8 @@ SRC = ft_isalpha.c \
 		ft_putnbr_fd.c \
 
 SRC_BONUS = ft_lstnew.c \
-		ft_lstadd_front.c
+		ft_lstadd_front.c \
+		ft_lstsize.c
 
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
