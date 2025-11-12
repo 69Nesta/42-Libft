@@ -34,10 +34,13 @@ SRC = ft_isalpha.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c \
+
+SRC_BONUS = ft_lstnew.c
 
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
+OBJ_BONUS = $(addprefix $(OBJ_DIR)/, $(SRC_BONUS:%.c=%.o))
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I. -g3
@@ -50,6 +53,9 @@ $(NAME): $(OBJ)
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
+
+bonus: $(OBJ) $(OBJ_BONUS)
+	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 clean:
 	rm -rf $(OBJ_DIR)
@@ -64,7 +70,7 @@ check: norm
 norm:
 	@clear
 	@echo "\n------------ Norm ------------\n"
-	@norminette $(SRC)
+	@norminette $(SRC) $(SRC_BONUS)
 	@echo
 
 test:
