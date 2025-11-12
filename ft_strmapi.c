@@ -6,11 +6,11 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:16:31 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/12 12:17:08 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/12 12:47:17 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
