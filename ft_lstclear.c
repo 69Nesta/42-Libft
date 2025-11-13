@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:34:09 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/13 07:54:10 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/13 07:59:30 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	if (!lst || !*lst)
 		return ;
 	current = *lst;
-	while (current->next)
+	while (current)
 	{
 		to_del = current;
 		current = to_del->next;
 		del(to_del->content);
 		free(to_del);
 	}
-	del(current->content);
-	free(current);
 	*lst = NULL;
 }
