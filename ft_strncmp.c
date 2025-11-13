@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 18:19:30 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/05 18:24:00 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/13 09:16:17 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t length)
 	while (s1[i] == s2[i] && s1[i] && i < length)
 		i++;
 	if (i < length)
-		return (s1[i] - s2[i]);
+		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	return (0);
 }
