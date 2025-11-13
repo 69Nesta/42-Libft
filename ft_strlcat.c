@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 17:18:39 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/06 17:16:33 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/13 15:49:57 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 
 	i = 0;
 	j = 0;
-	while (dest[i])
+	while (dest && dest[i])
 		i++;
 	if (size > 0)
 	{
@@ -30,7 +30,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 		}
 		dest[j + i] = '\0';
 	}
-	while (src[j] != '\0')
+	while (src && src[j] != '\0')
 		j++;
 	if (i > size)
 		return (size + j);

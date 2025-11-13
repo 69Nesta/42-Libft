@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:22:31 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/06 14:39:41 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/13 11:00:53 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ char	*ft_strdup(const char *string)
 		dup[i] = string[i];
 		i++;
 	}
-	dup[i] = '\0';
+	if (dup)
+		dup[i] = '\0';
 	return (dup);
 }

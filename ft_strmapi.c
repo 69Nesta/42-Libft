@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:16:31 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/12 12:47:17 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/13 11:01:37 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		result[i] = f(i, s[i]);
 		i++;
 	}
-	result[i] = '\0';
+	if (result)
+		result[i] = '\0';
 	return (result);
 }

@@ -3,3 +3,4 @@ obj/
 tests
 test.c
 a.out
+.vscode

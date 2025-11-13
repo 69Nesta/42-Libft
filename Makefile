@@ -78,12 +78,16 @@ check: norm
 norm:
 	@clear
 	@echo "\n------------ Norm ------------\n"
-	@norminette $(SRC) $(SRC_BONUS)
+	@norminette $(SRC) $(SRC_BONUS) libft.h
 	@echo
 
 test: bonus
 	@$(CC) $(CFLAGS) test.c -o test.out -L. -lft
 	@valgrind ./test.out
 	@rm -f test.out
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(SRC_BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJ) $(OBJ_BONUS)
 
 .PHONY: all clean fclean re

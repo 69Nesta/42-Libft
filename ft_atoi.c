@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 10:15:57 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/06 10:58:04 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/13 10:50:23 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_atoi(const char *nptr)
 	res = 0;
 	sign = 1;
 	i = 0;
-	while ((nptr[i] >= '\a' && nptr[i] <= '\r') || nptr[i] == ' ')
+	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
