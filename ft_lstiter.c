@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 07:55:00 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/13 07:58:42 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/13 08:35:05 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*current;
-	
+
 	current = lst;
 	while (current)
 	{
