@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:41:26 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/06 16:29:04 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/13 16:08:17 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	l;
 
 	i = 0;
-	while (s[i])
+	while (s && s[i])
 		i++;
 	l = 0;
 	if (start < i)
 	{
-		while (s[start + l] && l < len)
+		while (s && s[start + l] && l < len)
 			l++;
 		sub = malloc(sizeof(char) * (l + 1));
 	}

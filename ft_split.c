@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 08:55:59 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/12 09:22:32 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/13 16:10:57 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	i_str = 0;
+	if (!s)
+		return (NULL);
 	array_size = ft_malloc_array(s, c, &array);
 	while (i < array_size && array)
 	{

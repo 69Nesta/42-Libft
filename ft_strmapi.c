@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:16:31 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/13 11:01:37 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/13 16:11:48 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*result;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	result = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	while (s[i] && result)
 	{
