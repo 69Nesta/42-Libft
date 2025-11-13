@@ -41,7 +41,8 @@ SRC_BONUS = ft_lstnew.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
 		ft_lstadd_back.c \
-		ft_lstdelone.c
+		ft_lstdelone.c \
+		ft_lstclear.c
 
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
@@ -78,9 +79,9 @@ norm:
 	@norminette $(SRC) $(SRC_BONUS)
 	@echo
 
-test:
-	@$(CC) $(CFLAGS) test.c -o test.out
-	@./test.out 42
+test: bonus
+	@$(CC) $(CFLAGS) test.c -o test.out -L. -lft
+	@valgrind ./test.out
 	@rm -f test.out
 
 .PHONY: all clean fclean re
