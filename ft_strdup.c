@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:22:31 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/13 11:00:53 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/14 11:22:05 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ char	*ft_strdup(const char *string)
 	while (string[i] != 0)
 		i++;
 	dup = malloc(sizeof(char) * (i + 1));
+	if (!dup)
+		return (NULL);
 	i = 0;
-	while (string[i] != 0 && dup)
+	while (string[i] != 0)
 	{
 		dup[i] = string[i];
 		i++;
 	}
-	if (dup)
-		dup[i] = '\0';
+	dup[i] = '\0';
 	return (dup);
 }

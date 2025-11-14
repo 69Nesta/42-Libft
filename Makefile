@@ -86,4 +86,8 @@ test: bonus
 	@valgrind ./test.out
 	@rm -f test.out
 
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(SRC_BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJ) $(OBJ_BONUS)
+
 .PHONY: all bonus clean fclean re check norm test
