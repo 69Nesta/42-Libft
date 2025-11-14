@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 08:02:57 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/13 15:21:41 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/14 08:33:54 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	current = lst;
 	new_lst = NULL;
-	if (!del || !lst || !f)
+	if (!del || !lst)
 		return (NULL);
 	while (current)
 	{

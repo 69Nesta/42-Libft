@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:34:09 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/13 11:03:48 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/14 08:33:34 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	t_list	*current;
 	t_list	*to_del;
 
-	if (!lst || !*lst || !del)
-		return ;
 	current = *lst;
 	while (current)
 	{

@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 16:30:23 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/13 16:10:24 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/14 08:31:44 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	trim_s;
 
 	trim_s = 0;
-	if (!s1)
+	if (!s1 || !set)
 		return (NULL);
 	while (s1[trim_s] && ft_isinset(s1[trim_s], set))
 		trim_s++;

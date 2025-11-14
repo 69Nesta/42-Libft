@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 12:18:12 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/13 16:15:03 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/11/14 08:32:42 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	size_t	i;
 
 	i = 0;
-	while (s && s[i])
+	if (!s || !f)
+		return ;
+	while (s[i])
 	{
 		f(i, s + i);
 		i++;
