@@ -83,11 +83,12 @@ OBJ_DIR = .obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 INCLUDES_DIR = includes
-HEADERS = libft.h get_next_line.h
+# HEADERS = libft.h get_next_line.h ft_printf.h libft_colors.h
+HEADERS = 
 INCLUDES = $(addprefix $(INCLUDES_DIR)/, $(HEADERS))
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I $(INCLUDES_DIR) 
+CFLAGS = -Wall -Wextra -Werror -I $(INCLUDES_DIR) -MMD -MP
 
 all: $(NAME)
 
@@ -115,3 +116,5 @@ norm:
 	@echo
 
 .PHONY: all clean fclean re check norm
+
+-include $(OBJ:.o=.d)

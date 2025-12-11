@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:04:09 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/11 16:43:09 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/11 17:00:58 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft_colors.h"
 # include "get_next_line.h"
 # include "ft_printf.h"
 
