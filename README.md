@@ -10,7 +10,6 @@ This document includes **function descriptions, arguments, and return values** f
 
 ```sh
 make            # build libft.a
-make bonus      # build libft.a with bonus linked list functions
 make clean      # remove object files
 make fclean     # remove object files + libft.a
 make re         # rebuild everything
