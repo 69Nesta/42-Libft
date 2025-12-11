@@ -83,8 +83,7 @@ OBJ_DIR = .obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 INCLUDES_DIR = includes
-# HEADERS = libft.h get_next_line.h ft_printf.h libft_colors.h
-HEADERS = 
+HEADERS = libft.h get_next_line.h ft_printf.h libft_colors.h
 INCLUDES = $(addprefix $(INCLUDES_DIR)/, $(HEADERS))
 
 CC = cc
@@ -95,7 +94,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-$(OBJ_DIR)/%.o: %.c $(INCLUDES)
+$(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
