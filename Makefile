@@ -7,16 +7,22 @@ SRCS = \
 		srcs/char/ft_isascii.c \
 		srcs/char/ft_isprint.c \
 		srcs/char/ft_toupper.c \
-		srcs/char/ft_tolower.c \
-		\
+		srcs/char/ft_tolower.c
+
+SRCS += \
+		srcs/maths/ft_abs.c \
+		srcs/maths/ft_max.c
+
+SRCS += \
 		srcs/memory/ft_calloc.c \
 		srcs/memory/ft_bzero.c \
 		srcs/memory/ft_memset.c \
 		srcs/memory/ft_memcpy.c \
 		srcs/memory/ft_memmove.c \
 		srcs/memory/ft_memchr.c \
-		srcs/memory/ft_memcmp.c \
-		\
+		srcs/memory/ft_memcmp.c
+
+SRCS += \
 		srcs/str/ft_strlen.c \
 		srcs/str/ft_strchr.c \
 		srcs/str/ft_strrchr.c \
@@ -32,13 +38,15 @@ SRCS = \
 		srcs/str/ft_atoi.c \
 		srcs/str/ft_itoa.c \
 		srcs/str/ft_strmapi.c \
-		srcs/str/ft_striteri.c \
-		\
+		srcs/str/ft_striteri.c
+
+SRCS += \
 		srcs/fd/ft_putchar_fd.c \
 		srcs/fd/ft_putstr_fd.c \
 		srcs/fd/ft_putendl_fd.c \
 		srcs/fd/ft_putnbr_fd.c \
-		\
+
+SRCS += \
 		srcs/lists/ft_lstnew_bonus.c \
 		srcs/lists/ft_lstadd_front_bonus.c \
 		srcs/lists/ft_lstsize_bonus.c \
@@ -47,13 +55,36 @@ SRCS = \
 		srcs/lists/ft_lstdelone_bonus.c \
 		srcs/lists/ft_lstclear_bonus.c \
 		srcs/lists/ft_lstiter_bonus.c \
-		srcs/lists/ft_lstmap_bonus.c
+		srcs/lists/ft_lstmap_bonus.c \
+
+SRCS += \
+		srcs/get_next_line/get_next_line.c \
+		srcs/get_next_line/get_next_line_utils.c \
+
+SRCS += \
+		srcs/printf/ft_printf.c \
+		srcs/printf/srcs/ft_alignment.c \
+		srcs/printf/srcs/ft_utils.c \
+		srcs/printf/srcs/ft_atol.c \
+		srcs/printf/srcs/ft_swrite.c \
+		srcs/printf/srcs/ft_format_arg.c \
+		srcs/printf/srcs/ft_putnbr_base.c \
+		srcs/printf/srcs/ft_putnbr.c \
+		srcs/printf/srcs/ft_type_c.c \
+		srcs/printf/srcs/ft_type_s.c \
+		srcs/printf/srcs/ft_type_p.c \
+		srcs/printf/srcs/ft_type_i.c \
+		srcs/printf/srcs/ft_type_u.c \
+		srcs/printf/srcs/ft_type_x.c \
+		srcs/printf/srcs/ft_type_xx.c \
+		srcs/printf/srcs/ft_type_mod.c
 
 OBJ_DIR = .obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 INCLUDES_DIR = includes
-INCLUDES = libft.h
+HEADERS = libft.h get_next_line.h
+INCLUDES = $(addprefix $(INCLUDES_DIR)/, $(HEADERS))
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I $(INCLUDES_DIR) 
@@ -63,7 +94,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-$(OBJ_DIR)/%.o: %.c $(INCLUDES_DIR)/$(INCLUDES)
+$(OBJ_DIR)/%.o: %.c $(INCLUDES)
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -80,7 +111,7 @@ check: norm
 norm:
 	@clear
 	@echo "\n------------ Norm ------------\n"
-	@norminette $(SRCS) libft.h
+	@norminette $(SRCS) $(INCLUDES)
 	@echo
 
 .PHONY: all clean fclean re check norm
