@@ -1,6 +1,7 @@
-libft.a
-obj/
-tests
-test.c
-a.out
 .vscode
+
+libft.a
+.obj/
+
+*.out
+*.a
