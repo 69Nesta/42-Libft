@@ -26,6 +26,7 @@ SRCS += \
 		srcs/str/ft_strlen.c \
 		srcs/str/ft_strchr.c \
 		srcs/str/ft_strrchr.c \
+		srcs/str/ft_strcmp.c \
 		srcs/str/ft_strncmp.c \
 		srcs/str/ft_strnstr.c \
 		srcs/str/ft_strlcat.c \
