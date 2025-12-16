@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 12:35:27 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/11 16:41:13 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/16 15:30:12 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_args	ft_format_arg(const char *token)
 		ft_fill_arg(token, &i, &arg);
 		i++;
 	}
-	if (ft_ischarset(token[i], "cspdiuxX%"))
+	if (ft_ischarset(token[i], "cspdiuxX%f"))
 		arg.type = token[i++];
 	arg.arg_len = i;
 	return (arg);

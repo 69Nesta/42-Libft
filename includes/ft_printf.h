@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 17:09:06 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/11 16:38:20 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/16 16:53:39 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,18 @@ typedef struct s_args
 
 	int		arg_len;
 }	t_args;
+
+typedef struct s_printf_values
+{
+	int				neg;
+	int				precision;
+	int				printed_len;
+	double			absn;
+	double			pow10;
+	double			rounded;
+	unsigned long	frac_part;
+	long long		int_part;
+}	t_printf_values;
 
 // others
 t_atol	ft_atol_pf(const char *nptr);
@@ -95,5 +107,8 @@ int		ft_istype_xx(const t_args *arg);
 
 int		ft_type_mod(const t_args *arg);
 int		ft_istype_mod(const t_args *arg);
+
+int		ft_type_f(double n, const t_args *arg);
+int		ft_istype_f(const t_args *arg);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:04:09 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/16 14:46:25 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/16 16:39:19 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 // maths
 int		ft_abs(int i);
 int		ft_max(int a, int b);
+double	ft_pow10_double(double base, int exp);
+double	ft_floor_double(double x);
+double	ft_fmod_double(double x, double y);
+int		ft_signbit(double x);
+int		ft_get_int_len(long long n);
 
 // str
 size_t	ft_strlen(const char *str);
@@ -60,7 +65,9 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-int	ft_valid_number(char *str);
+int		ft_valid_number(char *str);
+int		ft_putnbr_double(long long int_part, unsigned long frac_part,
+			int frac_len);
 
 // fd
 void	ft_putchar_fd(char c, int fd);

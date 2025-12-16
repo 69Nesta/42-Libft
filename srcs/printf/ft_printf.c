@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 17:10:20 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/04 14:01:20 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/16 16:43:07 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,7 @@ static int	ft_type_selector(t_args *arg, va_list *ap)
 		return (ft_type_xx(va_arg(*ap, unsigned int), arg));
 	else if (ft_istype_mod(arg))
 		return (ft_type_mod(arg));
+	else if (ft_istype_f(arg))
+		return (ft_type_f(va_arg(*ap, double), arg));
 	return (0);
 }

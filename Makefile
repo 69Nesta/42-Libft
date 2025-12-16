@@ -11,7 +11,12 @@ SRCS = \
 
 SRCS += \
 		srcs/maths/ft_abs.c \
-		srcs/maths/ft_max.c
+		srcs/maths/ft_max.c \
+		srcs/maths/ft_floor_double.c \
+		srcs/maths/ft_fmod_double.c \
+		srcs/maths/ft_get_int_len.c \
+		srcs/maths/ft_pow_double.c \
+		srcs/maths/ft_signbit.c
 
 SRCS += \
 		srcs/memory/ft_calloc.c \
@@ -40,7 +45,8 @@ SRCS += \
 		srcs/str/ft_itoa.c \
 		srcs/str/ft_strmapi.c \
 		srcs/str/ft_striteri.c \
-		srcs/str/ft_valid_number.c
+		srcs/str/ft_valid_number.c \
+		srcs/str/ft_putdouble.c
 
 SRCS += \
 		srcs/fd/ft_putchar_fd.c \
@@ -79,6 +85,7 @@ SRCS += \
 		srcs/printf/srcs/ft_type_u.c \
 		srcs/printf/srcs/ft_type_x.c \
 		srcs/printf/srcs/ft_type_xx.c \
+		srcs/printf/srcs/ft_type_f.c \
 		srcs/printf/srcs/ft_type_mod.c
 
 OBJ_DIR = .obj
