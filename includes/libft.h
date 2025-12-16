@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:04:09 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/13 16:39:48 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/16 14:46:25 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+int	ft_valid_number(char *str);
 
 // fd
 void	ft_putchar_fd(char c, int fd);

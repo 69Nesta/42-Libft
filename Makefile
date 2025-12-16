@@ -39,7 +39,8 @@ SRCS += \
 		srcs/str/ft_atoi.c \
 		srcs/str/ft_itoa.c \
 		srcs/str/ft_strmapi.c \
-		srcs/str/ft_striteri.c
+		srcs/str/ft_striteri.c \
+		srcs/str/ft_valid_number.c
 
 SRCS += \
 		srcs/fd/ft_putchar_fd.c \
