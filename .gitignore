@@ -6,4 +6,4 @@ libft.a
 *.out
 *.a
 
-test*.c
+test*
