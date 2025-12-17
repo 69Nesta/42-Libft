@@ -6,14 +6,27 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 17:10:20 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/16 16:43:07 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/17 14:01:28 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_format(const char *format, va_list *ap);
-static int		ft_type_selector(t_args *arg, va_list *ap);
+static int	ft_format(const char *format, va_list *ap, int fd);
+static int	ft_type_selector(t_args *arg, va_list *ap);
+
+int	ft_fprintf(int fd, const char *format, ...)
+{
+	va_list	ap;
+	int		printed_char_count;
+
+	if (!format)
+		return (-1);
+	va_start(ap, format);
+	printed_char_count = ft_format(format, &ap, fd);
+	va_end(ap);
+	return (printed_char_count);
+}
 
 int	ft_printf(const char *format, ...)
 {
@@ -23,12 +36,12 @@ int	ft_printf(const char *format, ...)
 	if (!format)
 		return (-1);
 	va_start(ap, format);
-	printed_char_count = ft_format(format, &ap);
+	printed_char_count = ft_format(format, &ap, 1);
 	va_end(ap);
 	return (printed_char_count);
 }
 
-static int	ft_format(const char *format, va_list *ap)
+static int	ft_format(const char *format, va_list *ap, int fd)
 {
 	int		i;
 	int		i_start;
@@ -43,10 +56,12 @@ static int	ft_format(const char *format, va_list *ap)
 		while (format[i] && format[i] != '%')
 			i++;
 		if (i > i_start && format[i_start])
-			ft_swrite(&total_printed, write(1, format + i_start, i - i_start));
+			ft_swrite(&total_printed, ft_write_n(format + i_start,
+					i - i_start, fd));
 		if (format[i] == '%' && format[i + 1] && total_printed >= 0)
 		{
 			arg = ft_format_arg(format + ++i);
+			arg.fd = fd;
 			ft_swrite(&total_printed, ft_type_selector(&arg, ap));
 			i += arg.arg_len;
 		}

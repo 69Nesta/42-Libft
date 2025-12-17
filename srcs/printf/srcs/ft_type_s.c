@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 09:10:38 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/04 14:02:02 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/17 13:45:53 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	ft_type_s(const char *string, const t_args *arg)
 		len = 0;
 	ft_swrite(&count, ft_right_align(arg, ' ', len, 1));
 	if (!string && len)
-		ft_swrite(&count, write(1, &"(null)", len));
+		ft_swrite(&count, ft_write_n("(null)", len, arg->fd));
 	else if (string)
-		ft_swrite(&count, write(1, string, len));
+		ft_swrite(&count, ft_write_n(string, len, arg->fd));
 	ft_swrite(&count, ft_left_align(arg, ' ', len));
 	return (count);
 }

@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_utils_fd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 12:29:25 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/17 13:45:53 by rpetit           ###   ########.fr       */
+/*   Created: 2025/12/17 15:11:17 by rpetit            #+#    #+#             */
+/*   Updated: 2025/12/17 15:12:06 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putendl_fd(char *s, int fd)
+int	ft_putchar_to_fd(char c, int fd)
 {
-	int	total;
+	return (write(fd, &c, 1));
+}
 
-	if (!s)
+int	ft_putstr_to_fd(const char *str, int fd)
+{
+	if (!str)
 		return (0);
-	total = 0;
-	total += ft_putstr_fd(s, fd);
-	total += ft_putchar_fd('\n', fd);
-	return (total);
+	return ((int)write(fd, str, ft_strlen(str)));
+}
+
+int	ft_ischarset(char c, char *set)
+{
+	int	i;
+
+	i = 0;
+	while (set[i] && set[i] != c)
+		i++;
+	return (c == set[i]);
 }

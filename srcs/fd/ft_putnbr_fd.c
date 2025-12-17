@@ -6,28 +6,36 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 12:35:36 by rpetit            #+#    #+#             */
-/*   Updated: 2025/11/12 12:44:16 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/17 13:45:53 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_putnbr(unsigned int n, int fd);
+static int	ft_putnbr(unsigned int n, int fd);
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
+	int	total;
+
+	total = 0;
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr(n * -1, fd);
+		total += ft_putchar_fd('-', fd);
+		total += ft_putnbr((unsigned int)(-n), fd);
 	}
 	else
-		ft_putnbr(n, fd);
+		total += ft_putnbr((unsigned int)n, fd);
+	return (total);
 }
 
-static void	ft_putnbr(unsigned int n, int fd)
+static int	ft_putnbr(unsigned int n, int fd)
 {
+	int	cnt;
+
+	cnt = 0;
 	if (n / 10 > 0)
-		ft_putnbr(n / 10, fd);
-	ft_putchar_fd(n % 10 + '0', fd);
+		cnt += ft_putnbr(n / 10, fd);
+	cnt += ft_putchar_fd(n % 10 + '0', fd);
+	return (cnt);
 }

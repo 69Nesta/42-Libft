@@ -6,20 +6,21 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 09:31:12 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/11 16:41:46 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/17 14:01:47 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_base_r(unsigned long n, const char *base, int base_len)
+int	ft_putnbr_base_r(unsigned long n, const char *base, int base_len,
+				const t_args *arg)
 {
 	int	count;
 
 	count = 0;
 	if (n / base_len > 0)
-		count = ft_putnbr_base_r(n / base_len, base, base_len);
-	ft_swrite(&count, write(1, &(base[n % base_len]), 1));
+		count = ft_putnbr_base_r(n / base_len, base, base_len, arg);
+	ft_swrite(&count, ft_putchar_arg(base[n % base_len], arg));
 	return (count);
 }
 

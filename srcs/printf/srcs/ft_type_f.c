@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:33:29 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/16 16:52:59 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/17 13:45:50 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ int	ft_type_f(double n, const t_args *arg)
 	ft_type_f_calc(n, &vals, arg);
 	ft_swrite(&count, ft_right_align(arg, ' ', vals.printed_len, 0));
 	if (vals.neg)
-		ft_swrite(&count, ft_putchar('-'));
+		ft_swrite(&count, ft_putchar_arg('-', arg));
 	else if (arg->show_sign)
-		ft_swrite(&count, ft_putchar('+'));
+		ft_swrite(&count, ft_putchar_arg('+', arg));
 	else if (arg->space_sign)
-		ft_swrite(&count, ft_putchar(' '));
+		ft_swrite(&count, ft_putchar_arg(' ', arg));
 	ft_swrite(&count, ft_middle_zero(arg, '0', vals.printed_len));
 	ft_swrite(&count, ft_putnbr_double(vals.int_part, vals.frac_part,
-			vals.precision));
+			vals.precision, arg->fd));
 	ft_swrite(&count, ft_left_align(arg, ' ', vals.printed_len));
 	return (count);
 }

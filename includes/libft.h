@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:04:09 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/16 16:39:19 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/17 15:14:27 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 int		ft_valid_number(char *str);
 int		ft_putnbr_double(long long int_part, unsigned long frac_part,
-			int frac_len);
+			int frac_len, int fd);
 
 // fd
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putstr_fd(char *s, int fd);
+int		ft_putendl_fd(char *s, int fd);
+int		ft_putnbr_fd(int n, int fd);
 
 // lists
 typedef struct s_list

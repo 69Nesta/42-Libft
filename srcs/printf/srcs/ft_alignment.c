@@ -6,7 +6,7 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 09:50:13 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/04 14:02:02 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/17 13:45:53 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_left_align(const t_args *arg, const char fill, int printed_w)
 		return (printed);
 	while (printed_w + i < arg->width)
 	{
-		ft_swrite(&printed, ft_putchar(fill));
+		ft_swrite(&printed, ft_putchar_arg(fill, arg));
 		i++;
 	}
 	return (printed);
@@ -40,7 +40,7 @@ int	ft_middle_zero(const t_args *arg, const char fill, int printed_w)
 		return (printed);
 	while (printed_w + i < arg->width)
 	{
-		ft_swrite(&printed, ft_putchar(fill));
+		ft_swrite(&printed, ft_putchar_arg(fill, arg));
 		i++;
 	}
 	return (printed);
@@ -57,7 +57,7 @@ int	ft_right_align(const t_args *arg, const char fill, int w, int is_null)
 		return (printed);
 	while (w + i < arg->width)
 	{
-		ft_swrite(&printed, ft_putchar(fill));
+		ft_swrite(&printed, ft_putchar_arg(fill, arg));
 		i++;
 	}
 	return (printed);

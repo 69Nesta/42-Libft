@@ -6,25 +6,22 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 14:33:26 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/11 16:39:30 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/17 15:11:03 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// int	ft_strlen(const char *str)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i])
-// 		i++;
-// 	return (i);
-// }
-
 int	ft_putchar(char c)
 {
 	return (write(1, &c, 1));
+}
+
+int	ft_putchar_arg(char c, const t_args *arg)
+{
+	if (!arg)
+		return (ft_putchar(c));
+	return ((int)write(arg->fd, &c, 1));
 }
 
 int	ft_putstr(const char *str)
@@ -34,17 +31,11 @@ int	ft_putstr(const char *str)
 	return (write(1, str, ft_strlen(str)));
 }
 
-int	ft_ischarset(char c, char *set)
+int	ft_write_n(const char *s, int n, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (set[i] && set[i] != c)
-		i++;
-	return (c == set[i]);
+	if (!s || n <= 0)
+		return (0);
+	return ((int)write(fd, s, n));
 }
 
-// int	ft_is_num(const char c)
-// {
-// 	return (c >= '0' && c <= '9');
-// }
+/* fd variants for fprintf support (kept for non-printf usage) */

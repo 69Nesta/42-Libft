@@ -6,15 +6,17 @@
 /*   By: rpetit <rpetit@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:19:42 by rpetit            #+#    #+#             */
-/*   Updated: 2025/12/16 16:27:29 by rpetit           ###   ########.fr       */
+/*   Updated: 2025/12/17 15:15:56 by rpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_print_double(char *buf, unsigned long frac_part, int frac_len);
+static int	ft_print_double(char *buf, unsigned long frac_part, int frac_len,
+				int fd);
 
-int	ft_putnbr_double(long long int_part, unsigned long frac_part, int frac_len)
+int	ft_putnbr_double(long long int_part, unsigned long frac_part, int frac_len,
+		int fd)
 {
 	int		count;
 	char	buf[64];
@@ -23,7 +25,7 @@ int	ft_putnbr_double(long long int_part, unsigned long frac_part, int frac_len)
 	count = 0;
 	i = 0;
 	if (int_part == 0)
-		count += ft_putchar('0');
+		count += ft_putchar_arg('0', NULL);
 	else
 	{
 		while (int_part > 0 && i < (int) sizeof(buf) - 1)
@@ -32,13 +34,14 @@ int	ft_putnbr_double(long long int_part, unsigned long frac_part, int frac_len)
 			int_part /= 10;
 		}
 		while (i-- > 0)
-			count += ft_putchar(buf[i]);
+			count += ft_putchar_arg(buf[i], NULL);
 	}
-	count += ft_print_double(buf, frac_part, frac_len);
+	count += ft_print_double(buf, frac_part, frac_len, fd);
 	return (count);
 }
 
-static int	ft_print_double(char *buf, unsigned long frac_part, int frac_len)
+static int	ft_print_double(char *buf, unsigned long frac_part, int frac_len,
+				int fd)
 {
 	int	j;
 	int	count;
@@ -46,7 +49,7 @@ static int	ft_print_double(char *buf, unsigned long frac_part, int frac_len)
 	count = 0;
 	if (frac_len > 0)
 	{
-		count += ft_putchar('.');
+		count += ft_putchar_arg('.', NULL);
 		j = frac_len - 1;
 		buf[frac_len] = '\0';
 		while (j >= 0)
@@ -55,7 +58,7 @@ static int	ft_print_double(char *buf, unsigned long frac_part, int frac_len)
 			frac_part /= 10;
 			j--;
 		}
-		count += write(1, buf, frac_len);
+		count += ft_write_n(buf, frac_len, fd);
 	}
 	return (count);
 }

@@ -73,6 +73,7 @@ SRCS += \
 		srcs/printf/ft_printf.c \
 		srcs/printf/srcs/ft_alignment.c \
 		srcs/printf/srcs/ft_utils.c \
+		srcs/printf/srcs/ft_utils_fd.c \
 		srcs/printf/srcs/ft_atol.c \
 		srcs/printf/srcs/ft_swrite.c \
 		srcs/printf/srcs/ft_format_arg.c \
