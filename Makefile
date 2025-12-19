@@ -1,129 +1,212 @@
-NAME = libft.a
+# Program name
+NAME     = libft.a
 
-SRCS = \
-		srcs/char/ft_isalpha.c \
-		srcs/char/ft_isdigit.c \
-		srcs/char/ft_isalnum.c \
-		srcs/char/ft_isascii.c \
-		srcs/char/ft_isprint.c \
-		srcs/char/ft_toupper.c \
-		srcs/char/ft_tolower.c
+# Style
+GREY     = \033[0;30m
+RED      = \033[0;31m
+GREEN    = \033[0;32m
+YELLOW   = \033[0;33m
+BLUE     = \033[0;34m
+PURPLE   = \033[0;35m
+CYAN     = \033[0;36m
+WHITE    = \033[0;37m
 
-SRCS += \
-		srcs/maths/ft_abs.c \
-		srcs/maths/ft_max.c \
-		srcs/maths/ft_floor_double.c \
-		srcs/maths/ft_fmod_double.c \
-		srcs/maths/ft_get_int_len.c \
-		srcs/maths/ft_pow_double.c \
-		srcs/maths/ft_signbit.c
+BOLD     = \033[1m
+UNDER    = \033[4m
+REV      = \033[7m
+BLINK    = \033[5m
 
-SRCS += \
-		srcs/memory/ft_calloc.c \
-		srcs/memory/ft_bzero.c \
-		srcs/memory/ft_memset.c \
-		srcs/memory/ft_memcpy.c \
-		srcs/memory/ft_memmove.c \
-		srcs/memory/ft_memchr.c \
-		srcs/memory/ft_memcmp.c
+NC       = \033[0;0m
+ERASE    = \033[2K\r
+ERASE2   = $(ERASE)\033[F$(ERASE)
 
-SRCS += \
-		srcs/str/ft_strlen.c \
-		srcs/str/ft_strchr.c \
-		srcs/str/ft_strrchr.c \
-		srcs/str/ft_strcmp.c \
-		srcs/str/ft_strncmp.c \
-		srcs/str/ft_strnstr.c \
-		srcs/str/ft_strlcat.c \
-		srcs/str/ft_strlcpy.c \
-		srcs/str/ft_strdup.c \
-		srcs/str/ft_substr.c \
-		srcs/str/ft_strjoin.c \
-		srcs/str/ft_strtrim.c \
-		srcs/str/ft_split.c \
-		srcs/str/ft_atoi.c \
-		srcs/str/ft_itoa.c \
-		srcs/str/ft_strmapi.c \
-		srcs/str/ft_striteri.c \
-		srcs/str/ft_valid_number.c \
-		srcs/str/ft_putdouble.c
+# Compiler and flags
+CC       = cc
 
-SRCS += \
-		srcs/fd/ft_putchar_fd.c \
-		srcs/fd/ft_putstr_fd.c \
-		srcs/fd/ft_putendl_fd.c \
-		srcs/fd/ft_putnbr_fd.c \
+DEPFLAGS = -MMD -MP
+CFLAGS   = $(DEPFLAGS) -Wall -Wextra -Werror
+DEBUG_FLAGS = -g3
 
-SRCS += \
-		srcs/lists/ft_lstnew_bonus.c \
-		srcs/lists/ft_lstadd_front_bonus.c \
-		srcs/lists/ft_lstsize_bonus.c \
-		srcs/lists/ft_lstlast_bonus.c \
-		srcs/lists/ft_lstadd_back_bonus.c \
-		srcs/lists/ft_lstdelone_bonus.c \
-		srcs/lists/ft_lstclear_bonus.c \
-		srcs/lists/ft_lstiter_bonus.c \
-		srcs/lists/ft_lstmap_bonus.c \
+ifeq ($(MAKECMDGOALS), debug)
+	CFLAGS += $(DEBUG_FLAGS)
+endif
 
-SRCS += \
-		srcs/get_next_line/get_next_line.c \
-		srcs/get_next_line/get_next_line_utils.c \
+# Includes
+INCLUDES = -I includes/
 
-SRCS += \
-		srcs/printf/ft_printf.c \
-		srcs/printf/srcs/ft_alignment.c \
-		srcs/printf/srcs/ft_utils.c \
-		srcs/printf/srcs/ft_utils_fd.c \
-		srcs/printf/srcs/ft_atol.c \
-		srcs/printf/srcs/ft_swrite.c \
-		srcs/printf/srcs/ft_format_arg.c \
-		srcs/printf/srcs/ft_putnbr_base.c \
-		srcs/printf/srcs/ft_putnbr.c \
-		srcs/printf/srcs/ft_type_c.c \
-		srcs/printf/srcs/ft_type_s.c \
-		srcs/printf/srcs/ft_type_p.c \
-		srcs/printf/srcs/ft_type_i.c \
-		srcs/printf/srcs/ft_type_u.c \
-		srcs/printf/srcs/ft_type_x.c \
-		srcs/printf/srcs/ft_type_xx.c \
-		srcs/printf/srcs/ft_type_f.c \
-		srcs/printf/srcs/ft_type_mod.c
+LIBFT_CHAR_DIR	= srcs/char/
+LIBFT_CHAR		= ft_isalpha.c \
+					ft_isdigit.c \
+					ft_isalnum.c \
+					ft_isascii.c \
+					ft_isprint.c \
+					ft_toupper.c \
+					ft_tolower.c
 
-OBJ_DIR = .obj
-OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
+LIBFT_MATHS_DIR	= srcs/maths/
+LIBFT_MATHS		= ft_abs.c \
+					ft_max.c \
+					ft_floor_double.c \
+					ft_fmod_double.c \
+					ft_get_int_len.c \
+					ft_pow_double.c \
+					ft_signbit.c
 
-INCLUDES_DIR = includes
-HEADERS = libft.h get_next_line.h ft_printf.h libft_colors.h
-INCLUDES = $(addprefix $(INCLUDES_DIR)/, $(HEADERS))
+LIBFT_MEMORY_DIR	= srcs/memory/
+LIBFT_MEMORY		= ft_calloc.c \
+					ft_bzero.c \
+					ft_memset.c \
+					ft_memcpy.c \
+					ft_memmove.c \
+					ft_memchr.c \
+					ft_memcmp.c
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I $(INCLUDES_DIR) -MMD -MP
 
-all: $(NAME)
+LIBFT_STR_DIR	= srcs/str/
+LIBFT_STR		= ft_strlen.c \
+					ft_strchr.c \
+					ft_strrchr.c \
+					ft_strcmp.c \
+					ft_strncmp.c \
+					ft_strnstr.c \
+					ft_strlcat.c \
+					ft_strlcpy.c \
+					ft_strdup.c \
+					ft_substr.c \
+					ft_strjoin.c \
+					ft_strtrim.c \
+					ft_split.c \
+					ft_atoi.c \
+					ft_itoa.c \
+					ft_strmapi.c \
+					ft_striteri.c \
+					ft_valid_number.c \
+					ft_putdouble.c
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+LIBFT_FD_DIR	= srcs/fd/
+LIBFT_FD		= ft_putchar_fd.c \
+					ft_putstr_fd.c \
+					ft_putendl_fd.c \
+					ft_putnbr_fd.c \
 
-$(OBJ_DIR)/%.o: %.c
-	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@
+LIBFT_LISTS_DIR	= srcs/lists/
+LIBFT_LISTS		= ft_lstnew_bonus.c \
+					ft_lstadd_front_bonus.c \
+					ft_lstsize_bonus.c \
+					ft_lstlast_bonus.c \
+					ft_lstadd_back_bonus.c \
+					ft_lstdelone_bonus.c \
+					ft_lstclear_bonus.c \
+					ft_lstiter_bonus.c \
+					ft_lstmap_bonus.c \
 
-clean:
-	rm -rf $(OBJ_DIR)
+LIBFT_GNL_DIR	= srcs/get_next_line/
+LIBFT_GNL		= get_next_line.c \
+					get_next_line_utils.c \
 
-fclean: clean
-	rm -f $(NAME)
+LIBFT_PRINTF_DIR	= srcs/printf/
+LIBFT_PRINTF		= ft_printf.c \
+						srcs/ft_alignment.c \
+						srcs/ft_utils.c \
+						srcs/ft_utils_fd.c \
+						srcs/ft_atol.c \
+						srcs/ft_swrite.c \
+						srcs/ft_format_arg.c \
+						srcs/ft_putnbr_base.c \
+						srcs/ft_putnbr.c \
+						srcs/ft_type_c.c \
+						srcs/ft_type_s.c \
+						srcs/ft_type_p.c \
+						srcs/ft_type_i.c \
+						srcs/ft_type_u.c \
+						srcs/ft_type_x.c \
+						srcs/ft_type_xx.c \
+						srcs/ft_type_f.c \
+						srcs/ft_type_mod.c
 
-re: fclean all
+# Build full paths for all sources
+LIBFT_FILE	= $(addprefix $(LIBFT_CHAR_DIR), $(LIBFT_CHAR)) \
+					$(addprefix $(LIBFT_MATHS_DIR), $(LIBFT_MATHS)) \
+					$(addprefix $(LIBFT_MEMORY_DIR), $(LIBFT_MEMORY)) \
+					$(addprefix $(LIBFT_STR_DIR), $(LIBFT_STR)) \
+					$(addprefix $(LIBFT_FD_DIR), $(LIBFT_FD)) \
+					$(addprefix $(LIBFT_LISTS_DIR), $(LIBFT_LISTS)) \
+					$(addprefix $(LIBFT_GNL_DIR), $(LIBFT_GNL)) \
+					$(addprefix $(LIBFT_PRINTF_DIR), $(LIBFT_PRINTF))
 
-check: norm
+M_FILE  = $(LIBFT_FILE)
+
+
+# Object files directory
+OBJ_DIR   = .obj/
+OBJ       = $(M_FILE:%.c=$(OBJ_DIR)%.o)
+
+DEPS      = $(M_FILE:%.c=$(OBJ_DIR)%.d)
+
+# NORMINETTE (use same paths as norm target)
+# NORM_RET = $(RED)[ERROR]$(BOLD) Norminette Disable$(NC)
+NORM   = $(shell norminette src/ includes/ | grep -c 'Error!')
+ifeq ($(NORM), 0)
+  NORM_RET = $(GREEN)[DONE] $(BOLD)$(CYAN)Norminette.$(NC)
+else
+  NORM_RET = $(RED)[ERROR] $(BOLD)$(CYAN)Norminette.$(NC)
+endif
+
+COMPILED_FILES := 0
+
+# Pattern rule for object files
+$(OBJ_DIR)%.o : %.c
+	@if [ $(COMPILED_FILES) -eq 0 ]; then \
+		echo "\n$(CYAN)╔══════════════════════════════════════════════╗$(NC)";                          \
+		echo "$(CYAN)║        Starting $(YELLOW)$(NAME)$(CYAN) compilation...       ║$(NC)";           \
+		echo "$(CYAN)╚══════════════════════════════════════════════╝$(NC)";                        \
+	fi
+	@$(eval COMPILED_FILES := 1)
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -o $@ -c $< $(INCLUDES)
+	@printf "\n$(GREEN)[Compiling] $(NC)$(shell echo $< | sed 's|^src/||')";
+
+all : $(NAME) nothing_to_be_done
+
+nothing_to_be_done:
+	@if [ $(COMPILED_FILES) -eq 0 ]; then \
+		echo "\n$(CYAN)╔══════════════════════════════════════════════╗$(NC)";                          \
+		echo "$(CYAN)║        Nothing to be done for $(YELLOW)$(NAME)$(CYAN).       ║$(NC)";           \
+		echo "$(CYAN)╚══════════════════════════════════════════════╝$(NC)\n";                          \
+	fi
+
+$(NAME) : $(OBJ)
+	@if [ $(COMPILED_FILES) -eq 0 ]; then \
+		echo "\n$(CYAN)╔══════════════════════════════════════════════╗$(NC)";                          \
+		echo "$(CYAN)║        Starting $(YELLOW)$(NAME)$(CYAN) compilation...       ║$(NC)";           \
+		echo "$(CYAN)╚══════════════════════════════════════════════╝$(NC)";                        \
+	fi
+	@$(eval COMPILED_FILES := 1)
+	@echo "\n\n$(GREEN)[Compiling program] $(NC)$(NAME)"
+	@ar rcs $(NAME) $(OBJ)
+# 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+# 	@make --no-print-directory end_message
+
+clean :
+	@echo "$(RED)[Removing] $(NC)object files"
+	@rm -rf $(OBJ_DIR)
+
+fclean : clean
+	@if [ -f $(NAME) ]; then \
+		echo "$(RED)[Removing] $(NC)program $(NAME)"; \
+		rm -f $(NAME); \
+	fi
+
+re : fclean
+	@make --no-print-directory all
+
+debug: all 
 
 norm:
-	@clear
-	@echo "\n------------ Norm ------------\n"
-	@norminette $(SRCS) $(INCLUDES)
-	@echo
+	@norminette src/ includes/
 
-.PHONY: all clean fclean re check norm
+bonus:
 
--include $(OBJ:.o=.d)
+.PHONY: all clean fclean re nothing_to_be_done norminette debug
+
+-include $(DEPS)
